@@ -11,24 +11,24 @@ public CashRegister()
 	payment = 0;
 }
 
-public CashRegister (double initialPurchase)
-{
-	purchase = initialPurchase;
-}
-
-public  void recordPurchase (double cost)
+public void recordPurchase (double cost)
 {
 	purchase = purchase + cost;
 }
 
 public void recordPayment (double amount)
 {
-	payment = payment+ amount;
+	payment = amount;
 }
 
-public void giveChange (double change)
+public double giveChange ()
 {
-	change = purchase - payment;
+	return payment - purchase;
 }
-
+public void calcDiscount (double discount, double minimumPurchase)
+{
+	if (purchase > minimumPurchase) {
+		purchase = purchase - (purchase * discount);
+	}
+}
 }
